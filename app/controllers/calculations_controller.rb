@@ -20,6 +20,7 @@ class CalculationsController < ApplicationController
     @user_number = params["user_number"]
     @user_number = @user_number.to_f
     @user_number_sqrt = @user_number ** 0.5
+    @user_number_sqrt = @user_number_sqrt.round(2)
     render("square_root.html.erb")
 
   end
