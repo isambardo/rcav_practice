@@ -24,4 +24,14 @@ class CalculationsController < ApplicationController
 
   end
 
+  def random
+
+    @lower_limit = params["lower_limit"].to_i
+    @upper_limit = params["upper_limit"].to_i
+    range = @upper_limit.to_i - @lower_limit.to_i
+    @random = @lower_limit + rand(range)
+    render("random.html.erb")
+
+  end
+
 end
