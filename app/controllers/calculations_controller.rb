@@ -35,4 +35,15 @@ class CalculationsController < ApplicationController
 
   end
 
+  def payment
+    @apr = params[:annual_percentage_rate].to_f
+    @apr = @apr/100
+    @years = params[:number_of_years].to_i
+    @principal = params[:principal_value].to_i
+    @monthlyrate = @apr/1200
+    @months = @years * 12
+    @monthly_payment = @principal * (@monthlyrate+(@monthlyrate/(((1+@monthlyrate)**@months)-1)))
+    @monthly_payment = @monthly_payment.round(2)
+  end
+
 end
