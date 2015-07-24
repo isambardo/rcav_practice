@@ -43,7 +43,6 @@ class CalculationsController < ApplicationController
     @monthlyrate = @apr/1200
     @months = @years * 12
     @monthly_payment = @principal * (@monthlyrate+(@monthlyrate/(((1+@monthlyrate)**@months)-1)))
-    @monthly_payment = @monthly_payment.round(2)
   end
 
 end
